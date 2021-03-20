@@ -25,6 +25,11 @@ namespace LogisticInventorySystem.Views.Items
             return View(await _context.Item.ToListAsync());
         }
 
+        public async Task<IActionResult> AdminIndex()
+        {
+            return View(await _context.Item.ToListAsync());
+        }
+
         // GET: Items/Details/5
         public async Task<IActionResult> Details(int? id)
         {

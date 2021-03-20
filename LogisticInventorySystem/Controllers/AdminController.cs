@@ -1,5 +1,8 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using LogisticInventorySystem.Data;
+using LogisticInventorySystem.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -12,13 +15,24 @@ namespace LogisticInventorySystem.Controllers
     {
         private readonly ILogger<AdminController> _logger;
 
-        public AdminController(ILogger<AdminController> logger)
+        private readonly LogisticInventorySystemItemContext _context;
+
+        public AdminController(LogisticInventorySystemItemContext context, ILogger<AdminController> logger)
         {
+            _context = context;
+            _logger = logger;
         }
         public IActionResult Index()
         {
             return View();
         }
+
+        public async Task<IActionResult> Inventory()
+        {
+            return View(await _context.Item.ToListAsync());
+        }
+
+        public ActionResult
 
         //[HttpPost]
         public ActionResult AdminLogin(IFormCollection collection)
