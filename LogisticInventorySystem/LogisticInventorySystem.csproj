@@ -35,7 +35,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Migrations\LogisticInventorySystemItem\" />
+    <Folder Include="Views\Orders\" />
   </ItemGroup>
 
 </Project>

@@ -1,12 +1,12 @@
 {
   "dependencies": {
-    "mssql1": {
-      "type": "mssql",
-      "connectionId": "LogisticInventorySystemContextConnection"
-    },
     "mssql2": {
       "type": "mssql",
       "connectionId": "LogisticInventorySystemItemContext"
+    },
+    "mssql1": {
+      "type": "mssql",
+      "connectionId": "LogisticInventorySystemContextConnection"
     }
   }
 }
