@@ -1,3 +1,27 @@
 {
-  "dependencies": {}
+  "dependencies": {
+    "mssql1": {
+      "type": "mssql.local",
+      "connectionId": "LogisticInventorySystemContextConnection"
+    },
+    "mssql2": {
+      "type": "mssql.local",
+      "connectionId": "LogisticInventorySystemItemContext"
+    },
+    "secrets1": {
+      "type": "secrets.user"
+    },
+    "storage1": {
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Storage/storageAccounts/easysmestorage",
+      "type": "storage.azure",
+      "connectionId": "easysmeblob",
+      "secretStore": "LocalSecretsFile"
+    },
+    "storage2": {
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Storage/storageAccounts/easysmestorage",
+      "type": "storage.azure",
+      "connectionId": "TableStorageConnection",
+      "secretStore": "LocalSecretsFile"
+    }
+  }
 }
