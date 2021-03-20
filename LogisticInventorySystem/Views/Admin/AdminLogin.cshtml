@@ -11,6 +11,9 @@
         <section>
                 <h4>Log in as administrator.</h4>
                 <hr />
+                <div>
+                    <p> @ViewBag.Error</p>
+                </div>
                 <div asp-validation-summary="All" class="text-danger"></div>
                 <div class="container">
                     @using (Html.BeginForm("AdminLogin", "Admin", FormMethod.Post))

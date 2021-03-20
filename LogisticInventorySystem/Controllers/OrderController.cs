@@ -8,12 +8,15 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using LogisticInventorySystem.Models;
-
+using Microsoft.AspNetCore.Identity;
+using LogisticInventorySystem.Areas.Identity.Data;
+using System.Text.RegularExpressions;
 
 namespace LogisticInventorySystem.Controllers
 {
     public class OrderController : Controller
     {
+
         public IActionResult Index()
         {
             return View();
@@ -36,12 +39,15 @@ namespace LogisticInventorySystem.Controllers
         public ActionResult CreateSupplierOrderPage(string msg = null)
         {
             ViewBag.message = msg;
-            string orderid = Convert.ToBase64String(Guid.NewGuid().ToByteArray());
+            string orderid = Convert.ToBase64String(Guid.NewGuid().ToByteArray()).Replace("=","");
+            Regex rgx = new Regex("[^a-zA-Z0-9 -]"); 
+            orderid = rgx.Replace(orderid, "").Substring(0,5);
+            orderid = "SP_" + orderid;
             ViewBag.OrderID = orderid;
             return View();
         }
 
-        public ActionResult PlaceSupplierOrder(string orderid,int itemid, int qty)
+        public ActionResult PlaceSupplierOrder(string orderid,string itemid, int qty)
         {
             CloudTable tablestorage = getTableStorageInformation();
             OrderEntity order = new OrderEntity(orderid, itemid);

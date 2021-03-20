@@ -7,12 +7,18 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using LogisticInventorySystem.Data;
 using LogisticInventorySystem.Models;
+using Microsoft.WindowsAzure.Storage.Blob;
+using Microsoft.Extensions.Configuration;
+using System.IO;
+using Microsoft.WindowsAzure.Storage;
+using Microsoft.AspNetCore.Http;
 
 namespace LogisticInventorySystem.Views.Items
 {
     public class ItemsController : Controller
     {
         private readonly LogisticInventorySystemItemContext _context;
+        private string imgURL;
 
         public ItemsController(LogisticInventorySystemItemContext context)
         {
@@ -59,10 +65,12 @@ namespace LogisticInventorySystem.Views.Items
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,ItemID,Name,Description,Quantity")] Item item)
+        public async Task<IActionResult> Create([Bind("ID,ItemID,Name,Description,Quantity")] Item item, IFormFile img)
         {
             if (ModelState.IsValid)
             {
+                await UploadToBlob(img);
+                item.ImageURL = imgURL;
                 _context.Add(item);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -153,6 +161,29 @@ namespace LogisticInventorySystem.Views.Items
         private bool ItemExists(int id)
         {
             return _context.Item.Any(e => e.ID == id);
+        }
+
+        private CloudBlobContainer getBlobStorage()
+        {
+            var builder = new ConfigurationBuilder()
+                            .SetBasePath(Directory.GetCurrentDirectory())
+                            .AddJsonFile("appsettings.json");
+            IConfigurationRoot configure = builder.Build();
+
+            CloudStorageAccount objectaccount = CloudStorageAccount.Parse(configure["ConnectionStrings:BlobStorageConnection"]);
+            CloudBlobClient blobclient = objectaccount.CreateCloudBlobClient();
+            CloudBlobContainer container = blobclient.GetContainerReference("itemimgblob");
+            return container;
+        }
+
+        public async Task UploadToBlob(IFormFile img)
+        {
+            CloudBlobContainer cloud = getBlobStorage();
+            CloudBlockBlob blob = cloud.GetBlockBlobReference(img.FileName);
+            blob.Properties.ContentType = img.ContentType;
+            await blob.UploadFromStreamAsync(img.OpenReadStream());
+            imgURL = blob.Uri.AbsoluteUri;
+            //return RedirectToAction("Create");
         }
     }
 }

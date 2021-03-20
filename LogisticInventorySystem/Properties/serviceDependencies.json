@@ -3,10 +3,6 @@
     "secrets1": {
       "type": "secrets"
     },
-    "storage1": {
-      "type": "storage",
-      "connectionId": "easysmeblob"
-    },
     "storage2": {
       "type": "storage",
       "connectionId": "TableStorageConnection"
@@ -18,6 +14,10 @@
     "mssql1": {
       "type": "mssql",
       "connectionId": "LogisticInventorySystemContextConnection"
+    },
+    "storage1": {
+      "type": "storage",
+      "connectionId": "BlobStorageConnection"
     }
   }
 }

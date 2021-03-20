@@ -12,12 +12,12 @@
     </h5>
     <br />
     <br />
-    <form method="post" asp-controller="Order" asp-action="PlaceSupplierOrder" asp-route-orderid="@ViewBag.OrderId" asp-route-itemid="@ViewBag.ItemID" asp-route-qty="qty">
+    <form method="post" asp-controller="Order" asp-action="PlaceSupplierOrder" asp-route-orderid="@ViewBag.OrderId" asp-route-itemid="itemid" asp-route-qty="qty">
         <p>
-            Order ID : @ViewBag.OrderId
+            New Order ID : @ViewBag.OrderId
         </p>
         <p>
-            Item ID : <input type="number" name="itemid" value="" required />
+            Item Name : <input type="text" name="itemid" value="" required />
         </p>
         <p>
             Quantity : <input type="number" name="qty" value="" required />

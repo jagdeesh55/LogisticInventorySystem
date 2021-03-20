@@ -8,10 +8,10 @@ namespace LogisticInventorySystem.Models
 {
     public class OrderEntity : TableEntity
     {
-        public OrderEntity (string orderid, int itemid)
+        public OrderEntity (string orderid, string itemid)
         {
             this.PartitionKey = orderid;
-            this.RowKey = itemid.ToString();
+            this.RowKey = itemid;
         }
 
         public OrderEntity() { }

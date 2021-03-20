@@ -3,12 +3,6 @@
     "secrets1": {
       "type": "secrets.user"
     },
-    "storage1": {
-      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Storage/storageAccounts/easysmestorage",
-      "type": "storage.azure",
-      "connectionId": "easysmeblob",
-      "secretStore": "LocalSecretsFile"
-    },
     "storage2": {
       "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Storage/storageAccounts/easysmestorage",
       "type": "storage.azure",
@@ -26,6 +20,12 @@
       "type": "mssql.local",
       "connectionId": "LogisticInventorySystemContextConnection",
       "secretStore": null
+    },
+    "storage1": {
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Storage/storageAccounts/easysmestorage",
+      "type": "storage.azure",
+      "connectionId": "BlobStorageConnection",
+      "secretStore": "LocalSecretsFile"
     }
   }
 }

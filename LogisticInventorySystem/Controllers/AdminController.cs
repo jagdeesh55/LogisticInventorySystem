@@ -43,11 +43,38 @@ namespace LogisticInventorySystem.Controllers
             }
             else
             {
-                ViewBag.Message = "Please enter valid Email ID and Password";
+                ViewBag.Error = "Invalid Admin credentials.";
             }
 
             return View();
 
+        }
+
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var item = await _context.Item
+                .FirstOrDefaultAsync(m => m.ID == id);
+            if (item == null)
+            {
+                return NotFound();
+            }
+
+            return View(item);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            var item = await _context.Item.FindAsync(id);
+            _context.Item.Remove(item);
+            await _context.SaveChangesAsync();
+            return View(item);
         }
 
     }
