@@ -33,6 +33,15 @@ namespace LogisticInventorySystem.Areas.Identity.Pages.Account.Manage
 
         public class InputModel
         {
+            [Required]
+            [DataType(DataType.Text)]
+            [Display(Name = "Staff ID")]
+            public string StaffID { get; set; }
+
+            [Required]
+            [DataType(DataType.Text)]
+            [Display(Name = "Staff Name")]
+            public string StaffName { get; set; }
             [Phone]
             [Display(Name = "Phone number")]
             public string PhoneNumber { get; set; }
@@ -47,6 +56,8 @@ namespace LogisticInventorySystem.Areas.Identity.Pages.Account.Manage
 
             Input = new InputModel
             {
+                StaffName = user.StaffName,
+                StaffID = user.StaffID,
                 PhoneNumber = phoneNumber
             };
         }
@@ -86,6 +97,16 @@ namespace LogisticInventorySystem.Areas.Identity.Pages.Account.Manage
                     StatusMessage = "Unexpected error when trying to set phone number.";
                     return RedirectToPage();
                 }
+            }
+
+            if(Input.StaffID!= user.StaffID)
+            {
+                user.StaffID = Input.StaffID;
+            }
+
+            if (Input.StaffName != user.StaffName)
+            {
+                user.StaffName = Input.StaffName;
             }
 
             await _signInManager.RefreshSignInAsync(user);

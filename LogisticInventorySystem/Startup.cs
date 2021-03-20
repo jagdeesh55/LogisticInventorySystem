@@ -8,6 +8,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using LogisticInventorySystem.Data;
 
 namespace LogisticInventorySystem
 {
@@ -25,6 +27,9 @@ namespace LogisticInventorySystem
         {
             services.AddControllersWithViews();
             services.AddRazorPages();
+
+            services.AddDbContext<LogisticInventorySystemItemContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("LogisticInventorySystemItemContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -47,6 +47,16 @@ namespace LogisticInventorySystem.Areas.Identity.Pages.Account
         public class InputModel
         {
             [Required]
+            [DataType(DataType.Text)]
+            [Display(Name = "Staff ID")]
+            public string StaffID { get; set; }
+
+            [Required]
+            [DataType(DataType.Text)]
+            [Display(Name = "Staff Name")]
+            public string StaffName { get; set; }
+
+            [Required]
             [EmailAddress]
             [Display(Name = "Email")]
             public string Email { get; set; }
@@ -75,7 +85,12 @@ namespace LogisticInventorySystem.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
-                var user = new LogisticInventorySystemUser { UserName = Input.Email, Email = Input.Email };
+                var user = new LogisticInventorySystemUser 
+                { 
+                    StaffID = Input.StaffID,
+                    StaffName = Input.StaffName,
+                    UserName = Input.Email, Email = Input.Email 
+                };
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {

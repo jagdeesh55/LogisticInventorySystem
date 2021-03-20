@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <CopyRefAssembliesToPublishDirectory>false</CopyRefAssembliesToPublishDirectory>
+    <UserSecretsId>3b1adf7e-0cd8-4eec-80c0-86364f612b90</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -14,18 +15,27 @@
     <Compile Remove="Migrations\20210319225300_admintable.Designer.cs" />
     <Compile Remove="Migrations\20210319230247_createidentityschema1.cs" />
     <Compile Remove="Migrations\20210319230247_createidentityschema1.Designer.cs" />
+    <Compile Remove="Migrations\20210320092855_customuserdata.cs" />
+    <Compile Remove="Migrations\20210320092855_customuserdata.Designer.cs" />
+    <Compile Remove="Migrations\LogisticInventorySystemItem\20210320084621_ItemTable.cs" />
+    <Compile Remove="Migrations\LogisticInventorySystemItem\20210320084621_ItemTable.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.13" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.13" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.13" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.13" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.13" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.13">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Migrations\LogisticInventorySystemItem\" />
   </ItemGroup>
 
 </Project>

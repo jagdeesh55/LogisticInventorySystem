@@ -4,14 +4,16 @@ using LogisticInventorySystem.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace LogisticInventorySystem.Migrations
 {
     [DbContext(typeof(LogisticInventorySystemContext))]
-    partial class LogisticInventorySystemContextModelSnapshot : ModelSnapshot
+    [Migration("20210320093248_customuserdata")]
+    partial class customuserdata
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
