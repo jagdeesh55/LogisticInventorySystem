@@ -1,6 +1,8 @@
-﻿using LogisticInventorySystem.Data;
+﻿using LogisticInventorySystem.Areas.Identity.Data;
+using LogisticInventorySystem.Data;
 using LogisticInventorySystem.Models;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
@@ -14,13 +16,14 @@ namespace LogisticInventorySystem.Controllers
     public class AdminController : Controller
     {
         private readonly ILogger<AdminController> _logger;
-
+        private readonly UserManager<LogisticInventorySystemUser> _userManager;
         private readonly LogisticInventorySystemItemContext _context;
 
-        public AdminController(LogisticInventorySystemItemContext context, ILogger<AdminController> logger)
+        public AdminController(LogisticInventorySystemItemContext context, ILogger<AdminController> logger, UserManager<LogisticInventorySystemUser> userManager)
         {
             _context = context;
             _logger = logger;
+            _userManager = userManager;
         }
         public IActionResult Index()
         {
@@ -75,6 +78,11 @@ namespace LogisticInventorySystem.Controllers
             _context.Item.Remove(item);
             await _context.SaveChangesAsync();
             return View(item);
+        }
+
+        public IActionResult StaffDirectory()
+        {
+            return View(_userManager.Users);
         }
 
     }

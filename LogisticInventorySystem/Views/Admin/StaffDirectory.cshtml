@@ -1,0 +1,28 @@
+﻿@model IEnumerable<LogisticInventorySystem.Areas.Identity.Data.LogisticInventorySystemUser>
+
+@{
+    ViewData["Title"] = "Inventory";
+    Layout = "~/Views/Admin/_LayoutAdmin.cshtml";
+}
+
+<h1>Staff Directory</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Staff ID</th>
+            <th>Name</th>
+            <th>E-mail Address</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var staff in Model)
+        {
+        <tr>
+            <td>@staff.StaffID</td>
+            <td>@staff.StaffName</td>
+            <td>@staff.Email</td>
+        </tr>
+        }
+    </tbody>
+</table>
