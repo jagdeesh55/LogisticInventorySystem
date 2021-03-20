@@ -25,6 +25,11 @@ namespace LogisticInventorySystem.Views.Items
             return View(await _context.Item.ToListAsync());
         }
 
+        public async Task<IActionResult> AdminIndex()
+        {
+            return View(await _context.Item.ToListAsync());
+        }
+
         // GET: Items/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -54,7 +59,7 @@ namespace LogisticInventorySystem.Views.Items
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ItemID,Name,Description,Quantity")] Item item)
+        public async Task<IActionResult> Create([Bind("ID,ItemID,Name,Description,Quantity")] Item item)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +91,7 @@ namespace LogisticInventorySystem.Views.Items
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Name,Description,Quantity")] Item item)
+        public async Task<IActionResult> Edit(int id, [Bind("ID,ItemID,Name,Description,Quantity")] Item item)
         {
             if (id != item.ID)
             {
