@@ -14,7 +14,7 @@
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
         "ASPNETCORE_HOSTINGSTARTUPASSEMBLIES": "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation",
-        "AZURE_USERNAME": "TP046367@mail.apu.edu.my"
+        "AZURE_USERNAME": "TP046012@mail.apu.edu.my"
       }
     },
     "LogisticInventorySystem": {
@@ -24,7 +24,7 @@
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
         "ASPNETCORE_HOSTINGSTARTUPASSEMBLIES": "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation",
-        "AZURE_USERNAME": "TP046367@mail.apu.edu.my"
+        "AZURE_USERNAME": "TP046012@mail.apu.edu.my"
       }
     }
   }

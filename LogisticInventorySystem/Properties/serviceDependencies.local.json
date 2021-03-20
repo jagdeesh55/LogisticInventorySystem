@@ -1,13 +1,5 @@
 {
   "dependencies": {
-    "mssql1": {
-      "type": "mssql.local",
-      "connectionId": "LogisticInventorySystemContextConnection"
-    },
-    "mssql2": {
-      "type": "mssql.local",
-      "connectionId": "LogisticInventorySystemItemContext"
-    },
     "secrets1": {
       "type": "secrets.user"
     },
@@ -22,6 +14,18 @@
       "type": "storage.azure",
       "connectionId": "TableStorageConnection",
       "secretStore": "LocalSecretsFile"
+    },
+    "mssql2": {
+      "resourceId": null,
+      "type": "mssql.local",
+      "connectionId": "LogisticInventorySystemItemContext",
+      "secretStore": null
+    },
+    "mssql1": {
+      "resourceId": null,
+      "type": "mssql.local",
+      "connectionId": "LogisticInventorySystemContextConnection",
+      "secretStore": null
     }
   }
 }
