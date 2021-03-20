@@ -49,7 +49,7 @@
         <section>
             <h4>Log in as administrator.</h4>
             <li class="nav-item">
-                <a asp-controller="Admin" asp-action="LoginAdmin">Switch to Admin login</a>
+                <a asp-page="./LoginAdmin" asp-route-returnUrl="@Model.ReturnUrl">Switch to Admin login</a>
             </li>
         </section>
     </div>
