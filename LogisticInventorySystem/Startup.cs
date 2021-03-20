@@ -36,8 +36,8 @@ namespace LogisticInventorySystem
                     options.UseSqlServer(Configuration.GetConnectionString("LogisticInventorySystemItemContext")));
             services.AddAzureClients(builder =>
             {
-                builder.AddBlobServiceClient(Configuration["ConnectionStrings:easysmetable:blob"], preferMsi: true);
-                builder.AddQueueServiceClient(Configuration["ConnectionStrings:easysmetable:queue"], preferMsi: true);
+                builder.AddBlobServiceClient(Configuration["ConnectionStrings:easysmetablestorage:blob"], preferMsi: true);
+                builder.AddQueueServiceClient(Configuration["ConnectionStrings:easysmetablestorage:queue"], preferMsi: true);
             });
         }
 

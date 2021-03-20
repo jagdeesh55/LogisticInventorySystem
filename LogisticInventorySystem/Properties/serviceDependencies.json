@@ -2,11 +2,22 @@
   "dependencies": {
     "mssql1": {
       "type": "mssql",
-      "connectionId": "LogisticInventorySystemItemContext"
+      "connectionId": "LogisticInventorySystemContextConnection"
     },
     "mssql2": {
       "type": "mssql",
-      "connectionId": "LogisticInventorySystemContextConnection"
+      "connectionId": "LogisticInventorySystemItemContext"
+    },
+    "secrets1": {
+      "type": "secrets"
+    },
+    "storage1": {
+      "type": "storage",
+      "connectionId": "easysmeblob"
+    },
+    "storage2": {
+      "type": "storage",
+      "connectionId": "TableStorageConnection"
     }
   }
 }
