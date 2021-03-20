@@ -21,7 +21,7 @@ namespace LogisticInventorySystem.Controllers
         }
 
         //[HttpPost]
-        public ActionResult Login(IFormCollection collection)
+        public ActionResult AdminLogin(IFormCollection collection)
         {
             string email = Convert.ToString(collection["username"]);
             string Password = Convert.ToString(collection["password"]);

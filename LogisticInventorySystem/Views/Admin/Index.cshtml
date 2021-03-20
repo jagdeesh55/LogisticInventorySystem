@@ -5,24 +5,42 @@
 
 
 <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - LogisticInventorySystem</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 
 
 <body style="margin: 0;">
-    <nav class="nav-bar">
-        <div>
-            <a id="logo" asp-controller="Home" asp-action="Index">Ch Store</a>
-        </div>
-        <div class="nav-links-admin">
-            <li><a asp-area="" asp-controller="Clothes" asp-action="Index">View Staff</a></li>
-            <li><a asp-controller="Admin" asp-action="GetFeedback">View Inventory</a></li>
-            <li><a asp-controller="Admin" asp-action="ProcessMsg">View Invoice</a></li>
-            <li><a asp-controller="Home" asp-action="Index">LogOut</a></li>
-
-        </div>
-
-    </nav>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">LogisticInventorySystem</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a  class="nav-link text-dark" asp-controller="Admin" asp-action="StaffDirectory">View Staff</a>
+                        </li>
+                        <li class="nav-item">
+                            <a  class="nav-link text-dark" asp-controller="Admin" asp-action="GetFeedback">View Inventory</a>
+                        </li>
+                        <li class="nav-item">
+                            <a  class="nav-link text-dark" asp-controller="Admin" asp-action="ProcessMsg">View Invoice</a>
+                        </li>
+                        <li class="nav-item">
+                            <a  class="nav-link text-dark" asp-controller="Home" asp-action="Index">LogOut</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
 
 
 
