@@ -1,0 +1,31 @@
+﻿@{
+    Layout = null;
+
+}
+
+
+<head>
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+
+
+<body style="margin: 0;">
+    <nav class="nav-bar">
+        <div>
+            <a id="logo" asp-controller="Home" asp-action="Index">Ch Store</a>
+        </div>
+        <div class="nav-links-admin">
+            <li><a asp-area="" asp-controller="Clothes" asp-action="Index">View Staff</a></li>
+            <li><a asp-controller="Admin" asp-action="GetFeedback">View Inventory</a></li>
+            <li><a asp-controller="Admin" asp-action="ProcessMsg">View Invoice</a></li>
+            <li><a asp-controller="Home" asp-action="Index">LogOut</a></li>
+
+        </div>
+
+    </nav>
+
+
+
+
+
+</body>
