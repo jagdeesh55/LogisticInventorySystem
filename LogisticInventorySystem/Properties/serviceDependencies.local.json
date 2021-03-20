@@ -7,6 +7,21 @@
     "mssql2": {
       "type": "mssql.local",
       "connectionId": "LogisticInventorySystemItemContext"
+    },
+    "secrets1": {
+      "type": "secrets.user"
+    },
+    "storage2": {
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourcegroups/[parameters('resourceGroupName')]/providers/Microsoft.Storage/storageAccounts/easysmestorage",
+      "type": "storage.azure",
+      "connectionId": "easysmetable",
+      "secretStore": "LocalSecretsFile"
+    },
+    "storage1": {
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Storage/storageAccounts/easysmestorage",
+      "type": "storage.azure",
+      "connectionId": "easysmeblob",
+      "secretStore": "LocalSecretsFile"
     }
   }
 }
