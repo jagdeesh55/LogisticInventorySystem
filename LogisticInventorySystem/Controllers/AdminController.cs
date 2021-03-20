@@ -32,8 +32,6 @@ namespace LogisticInventorySystem.Controllers
             return View(await _context.Item.ToListAsync());
         }
 
-        public ActionResult
-
         //[HttpPost]
         public ActionResult AdminLogin(IFormCollection collection)
         {
