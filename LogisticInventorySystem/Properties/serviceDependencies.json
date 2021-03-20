@@ -11,13 +11,13 @@
     "secrets1": {
       "type": "secrets"
     },
-    "storage2": {
-      "type": "storage",
-      "connectionId": "easysmetable"
-    },
     "storage1": {
       "type": "storage",
       "connectionId": "easysmeblob"
+    },
+    "storage2": {
+      "type": "storage",
+      "connectionId": "TableStorageConnection"
     }
   }
 }
