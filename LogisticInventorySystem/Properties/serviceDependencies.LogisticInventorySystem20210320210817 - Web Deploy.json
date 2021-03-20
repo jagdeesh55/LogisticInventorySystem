@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "mssql1": {
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/easysme-sqldbserver/databases/EasySME_SQL",
+      "type": "mssql.azure",
+      "connectionId": "LogisticInventorySystemItemContext",
+      "secretStore": "AzureAppSettings"
+    },
+    "mssql2": {
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/easysme-sqldbserver/databases/EasySME_SQL",
+      "type": "mssql.azure",
+      "connectionId": "LogisticInventorySystemContextConnection",
+      "secretStore": "AzureAppSettings"
+    }
+  }
+}
