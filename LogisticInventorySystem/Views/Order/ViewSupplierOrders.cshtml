@@ -1,0 +1,32 @@
+﻿
+@model IEnumerable<LogisticInventorySystem.Models.OrderEntity>
+@{
+    ViewData["Title"] = "View Orders";
+}
+<center>
+    <h1>Supplier Orders</h1>
+
+    @if (ViewBag.msg != null)
+    {
+        <script>alert("@ViewBag.msg");</script>
+    }
+    <table border="1">
+        <tr>
+            <th>Order ID</th>
+            <th>Item ID</th>
+            <th>Quantity</th>
+            <th>Timestamp</th>
+        </tr>
+        @foreach (var order in Model)
+        {
+            <tr>
+                <td>@order.PartitionKey</td>
+                <td>@order.RowKey</td>
+                <td>@order.quantity</td>
+                <td>@order.Timestamp</td>
+            </tr>
+        }
+    </table>
+</center>
+
+

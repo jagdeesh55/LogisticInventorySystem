@@ -7,6 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Views\Orders\**" />
+    <Content Remove="Views\Orders\**" />
+    <EmbeddedResource Remove="Views\Orders\**" />
+    <None Remove="Views\Orders\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Remove="Migrations\20210319221657_createidentityschema.cs" />
     <Compile Remove="Migrations\20210319221657_createidentityschema.Designer.cs" />
     <Compile Remove="Migrations\20210319221736_createuserschema.cs" />
@@ -36,10 +43,7 @@
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.Azure" Version="1.0.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Views\Orders\" />
+    <PackageReference Include="WindowsAzure.Storage" Version="9.3.3" />
   </ItemGroup>
 
 </Project>

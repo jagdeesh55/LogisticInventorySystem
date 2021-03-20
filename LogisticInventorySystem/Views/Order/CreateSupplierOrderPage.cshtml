@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewData["Title"] = "Create Supplier OrderPage";
+}
+
+<center>
+    <h2>Place Supplier Orders</h2>
+    <h5>@if (ViewBag.message!=null)
+    {
+        @ViewBag.message
+    }
+    </h5>
+    <br />
+    <br />
+    <form method="post" asp-controller="Order" asp-action="PlaceSupplierOrder" asp-route-orderid="@ViewBag.OrderId" asp-route-itemid="@ViewBag.ItemID" asp-route-qty="qty">
+        <p>
+            Order ID : @ViewBag.OrderId
+        </p>
+        <p>
+            Item ID : <input type="number" name="itemid" value="" required />
+        </p>
+        <p>
+            Quantity : <input type="number" name="qty" value="" required />
+        </p>
+        <button type="submit" class="btn btn-secondary">Place Order</button>
+    </form>
+    <br />
+    <br />
+    <br />
+    <div>
+        <a asp-action="Index" asp-controller="Items">Back to List</a>
+    </div>
+</center>
