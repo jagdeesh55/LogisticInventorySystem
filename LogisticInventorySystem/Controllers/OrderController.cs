@@ -101,6 +101,36 @@ namespace LogisticInventorySystem.Controllers
                 return RedirectToAction("ViewSupplierOrders", "Order", new { error = error });
             }
         }
+
+        public ActionResult SearchOrderPage(string name, string error = null)
+        {
+            CloudTable tablestorage = getTableStorageInformation();
+
+            TableQuery<OrderEntity> query = new TableQuery<OrderEntity>().Where(TableQuery.GenerateFilterCondition("RowKey", QueryComparisons.Equal, name));
+            List<OrderEntity> all = new List<OrderEntity>();
+            TableContinuationToken token = null;
+
+            do
+            {
+                TableQuerySegment<OrderEntity> results = tablestorage.ExecuteQuerySegmentedAsync(query, token).Result;
+                token = results.ContinuationToken;
+
+                foreach (OrderEntity order in results.Results)
+                {
+                    all.Add(order);
+                }
+            }
+            while (token != null);
+            if (all.Count != 0)
+            {
+                return View(all); 
+            }
+            else
+            {
+                error = "No Search Data found for "+name;
+                return RedirectToAction("ViewSupplierOrders", "Order", new { error = error });
+            }
+        }
     }
 
 }
