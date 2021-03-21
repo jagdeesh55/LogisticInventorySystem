@@ -1,27 +1,28 @@
 {
   "dependencies": {
+    "appInsights1": {
+      "type": "appInsights",
+      "connectionId": "APPINSIGHTS_CONNECTIONSTRING"
+    },
     "secrets1": {
-      "type": "secrets"
-    },
-    "storage2": {
-      "type": "storage",
-      "connectionId": "TableStorageConnection"
-    },
-    "mssql2": {
-      "type": "mssql",
-      "connectionId": "LogisticInventorySystemItemContext"
+      "type": "secrets",
+      "connectionId": "VaultUri"
     },
     "mssql1": {
       "type": "mssql",
       "connectionId": "LogisticInventorySystemContextConnection"
     },
+    "mssql2": {
+      "type": "mssql",
+      "connectionId": "LogisticInventorySystemItemContext"
+    },
     "storage1": {
       "type": "storage",
       "connectionId": "BlobStorageConnection"
     },
-    "appInsights1": {
-      "type": "appInsights",
-      "connectionId": "APPINSIGHTS_CONNECTIONSTRING"
+    "storage2": {
+      "type": "storage",
+      "connectionId": "TableStorageConnection"
     }
   }
 }
