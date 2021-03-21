@@ -8,7 +8,7 @@
 <p>
     <h1>Inventory</h1>
     <a asp-action="Create">
-        <input type="button" value="Add Items"/>
+        <input type="button" value="Add Items"class="btn btn-primary" />
     </a> 
 </p>
 <table class="table">
@@ -46,8 +46,10 @@
                     @Html.DisplayFor(modelItem => item.Quantity)
                 </td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.ID">Details</a>
+                    <div class="form-group">
+                        <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.ID">Details</a>
+                    </div>
                 </td>
             </tr>
         }

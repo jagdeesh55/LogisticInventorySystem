@@ -46,11 +46,10 @@ namespace LogisticInventorySystem.Controllers
             }
             else
             {
-                ViewBag.Error = "Invalid Admin credentials.";
+                ViewBag.Message = "Please enter valid Email ID and Password";
+
             }
-
             return View();
-
         }
 
         public async Task<IActionResult> Delete(int? id)
