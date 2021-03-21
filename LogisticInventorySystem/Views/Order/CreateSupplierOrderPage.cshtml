@@ -20,14 +20,14 @@
             Item Name : <input type="text" name="itemid" value="" required />
         </p>
         <p>
-            Quantity : <input type="number" min ="1" name="qty" value="1" required />
+            Quantity : <input type="number" name="qty" value="" required />
         </p>
-        <button type="submit" class="btn btn-primary">Place Order</button>
+        <button type="submit" class="btn btn-secondary">Place Order</button>
     </form>
     <br />
     <br />
     <br />
-    <div class="form-group">
-        <a asp-action="Index" asp-controller="Items">Back to Inventory</a>
+    <div>
+        <a asp-action="Index" asp-controller="Items">Back to List</a>
     </div>
 </center>
