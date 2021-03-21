@@ -1,43 +1,49 @@
 ﻿@page
 
 
-@*@{
-    ViewData["Title"] = "Log in";
-}*@
-
-@*<h1>@ViewData["Title"]</h1>*@
+<h1>Log in</h1>
 <div class="row">
     <div class="col-md-4">
         <section>
-                <h4>Log in as administrator.</h4>
-                <hr />
-                <div>
-                    <p> @ViewBag.Error</p>
-                </div>
-                <div asp-validation-summary="All" class="text-danger"></div>
-                <div class="container">
-                    @using (Html.BeginForm("AdminLogin", "Admin", FormMethod.Post))
-                    {
-                        <label for="uname"><b>Username</b></label>
-                        <input type="text" placeholder="Enter Username" name="username" required>
-
-                        <label for="psw"><b>Password</b></label>
-                        <input type="password" placeholder="Enter Password" name="password" required>
-
-                        <button type="submit">Login</button>
-                    }
-                    <label>
-                        <input type="checkbox" checked="checked" name="remember"> Remember me
-                    </label>
-                </div>
+            <h4>Log in as administrator.</h4>
+            <hr />
+            <div>
+                <p>
+                @if (ViewBag.Error != null)
+                {
+                    @ViewBag.Error
+                }
+                </p>
+            </div>
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="container">
+                @using (Html.BeginForm("AdminLogin", "Admin", FormMethod.Post))
+                {
+                    <label for="uname"><b>Username</b></label>
+                    <br />
+                    <input type="text" placeholder="Enter Username" name="username" required>
+                    <br />
+                    <label for="psw"><b>Password</b></label>
+                    <br />
+                    <input type="password" placeholder="Enter Password" name="password" required>
+                    <br />
+                    <br />
+                    <button type="submit"class="btn-primary">Login</button>
+                }
+                <label>
+                    <input type="checkbox" checked="checked" name="remember"> Remember me
+                </label>
+            </div>
         </section>
     </div>
     <div class="col-md-6 col-md-offset-2">
+        <h4>Log in as administrator.</h4>
         <section>
-            <h4>Log in as administrator.</h4>
-            <li class="nav-item">
-                <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Switch to Staff login</a>
-            </li>
+            <ul>
+                <li class="form-group">
+                    <a  asp-area="Identity" asp-page="/Account/Login">Switch to Staff login</a>
+                </li>
+            </ul>
         </section>
     </div>
 </div>
