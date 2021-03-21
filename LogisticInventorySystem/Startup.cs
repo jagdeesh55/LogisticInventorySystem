@@ -39,6 +39,7 @@ namespace LogisticInventorySystem
                 builder.AddBlobServiceClient(Configuration["ConnectionStrings:easysmetablestorage:blob"], preferMsi: true);
                 builder.AddQueueServiceClient(Configuration["ConnectionStrings:easysmetablestorage:queue"], preferMsi: true);
             });
+            services.AddApplicationInsightsTelemetry(Configuration["APPINSIGHTS_CONNECTIONSTRING"]);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

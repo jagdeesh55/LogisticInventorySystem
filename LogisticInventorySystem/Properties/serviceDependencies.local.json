@@ -26,6 +26,12 @@
       "type": "storage.azure",
       "connectionId": "BlobStorageConnection",
       "secretStore": "LocalSecretsFile"
+    },
+    "appInsights1": {
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourcegroups/[parameters('resourceGroupName')]/providers/Microsoft.Insights/components/EasySME-ApplicationInsights",
+      "type": "appInsights.azure",
+      "connectionId": "APPINSIGHTS_CONNECTIONSTRING",
+      "secretStore": "LocalSecretsFile"
     }
   }
 }

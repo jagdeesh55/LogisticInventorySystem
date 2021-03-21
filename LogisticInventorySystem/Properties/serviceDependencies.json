@@ -18,6 +18,10 @@
     "storage1": {
       "type": "storage",
       "connectionId": "BlobStorageConnection"
+    },
+    "appInsights1": {
+      "type": "appInsights",
+      "connectionId": "APPINSIGHTS_CONNECTIONSTRING"
     }
   }
 }

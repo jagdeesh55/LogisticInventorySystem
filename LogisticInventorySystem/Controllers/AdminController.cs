@@ -67,7 +67,7 @@ namespace LogisticInventorySystem.Controllers
                 return NotFound();
             }
 
-            return View(item);
+            return View(item); 
         }
 
         [HttpPost, ActionName("Delete")]
@@ -77,7 +77,7 @@ namespace LogisticInventorySystem.Controllers
             var item = await _context.Item.FindAsync(id);
             _context.Item.Remove(item);
             await _context.SaveChangesAsync();
-            return View(item);
+            return RedirectToAction(nameof(Index));
         }
 
         public IActionResult StaffDirectory()

@@ -42,8 +42,8 @@
                     @Html.DisplayFor(modelItem => item.Quantity)
                 </td>
                 <td>
-                    <a asp-action="Delete">
-                        <input type="button" value="Delete" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this item?')"/>
+                    <a asp-controller="Admin" asp-action="Delete" asp-route-id="@item.ID">
+                        <input type="button" value="Delete" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this item?')" />
                     </a>
                 </td>
             </tr>
