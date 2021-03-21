@@ -21,7 +21,7 @@ namespace LogisticInventorySystem
             Host.CreateDefaultBuilder(args)
 .ConfigureAppConfiguration((context, config) =>
 {
-var keyVaultEndpoint = new Uri(Environment.GetEnvironmentVariable("VaultUri"));
+var keyVaultEndpoint = new Uri("https://logisticinventorysystemv.vault.azure.net/");
 config.AddAzureKeyVault(
 keyVaultEndpoint,
 new DefaultAzureCredential());
